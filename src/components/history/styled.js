@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import propTypes from "prop-types";
 
 export const HistoryContainer = styled.div`
   display: flex;
@@ -13,9 +14,14 @@ export const HistoryTitle = styled.h2`
 export const CalculationsList = styled.div`
   display: flex;
   flex-direction: column;
-  max-height: 445px;
-  overflow: auto;
+
+  max-height: ${(props) => (props.isHistoryHidden ? "100px" : "445px")};
+  overflow: ${(props) => (props.isHistoryHidden ? "hidden" : "auto")};
 `;
+
+CalculationsList.propTypes = {
+  isHistoryHidden: propTypes.bool,
+};
 
 export const Calculation = styled.div`
   font-size: 20px;

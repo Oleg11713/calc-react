@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import {
   Calculation,
@@ -8,21 +9,18 @@ import {
 } from "./styled";
 
 const History = () => {
+  const history = useSelector((state) => state.calculator.history);
+  const isHistoryHidden = useSelector(
+    (state) => state.calculator.isHistoryHidden
+  );
+
   return (
     <HistoryContainer>
       <HistoryTitle>History</HistoryTitle>
-      <CalculationsList>
-        <Calculation>2*2</Calculation>
-        <Calculation>2*2</Calculation>
-        <Calculation>2*2</Calculation>
-        <Calculation>2*2</Calculation>
-        <Calculation>2*2</Calculation>
-        <Calculation>2*2</Calculation>
-        <Calculation>2*2</Calculation>
-        <Calculation>2*2</Calculation>
-        <Calculation>2*2</Calculation>
-        <Calculation>2*2</Calculation>
-        <Calculation>2*2</Calculation>
+      <CalculationsList isHistoryHidden={isHistoryHidden}>
+        {history.map((calculation, index) => {
+          return <Calculation key={index}>{calculation}</Calculation>;
+        })}
       </CalculationsList>
     </HistoryContainer>
   );
