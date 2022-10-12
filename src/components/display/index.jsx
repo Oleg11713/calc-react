@@ -1,11 +1,9 @@
-import React from 'react';
+import React from "react";
+
+import { DisplayContainer } from "./styled";
 
 const Display = () => {
-    return (
-        <div>
-
-        </div>
-    );
+  return <DisplayContainer>4500.123</DisplayContainer>;
 };
 
 export default Display;

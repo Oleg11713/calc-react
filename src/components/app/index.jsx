@@ -2,9 +2,9 @@ import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import Header from "../header";
+import { ROUTES } from "../../constants/routes";
 
 import { AppContainer } from "./styled";
-import { ROUTES } from "../../constants/routes";
 
 const App = () => {
   return (

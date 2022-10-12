@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { ActiveTab, HeaderContainer, LogoTitle, Tab, Tabs } from "./styled";
 import { Link, useLocation } from "react-router-dom";
+
 import { ROUTES } from "../../constants/routes";
+
+import { ActiveTab, HeaderContainer, LogoTitle, Tab, Tabs } from "./styled";
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState("Home");
