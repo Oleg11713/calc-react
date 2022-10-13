@@ -30,7 +30,7 @@ const ControlPanel = () => {
   return (
     <ControlPanelContainer>
       <ButtonHideHistory onClick={changeHistoryVisibility} theme={theme}>
-        {isHistoryHidden ? "Show History" : "Hide History"}
+        {isHistoryHidden ? "Full History" : "Hide History"}
       </ButtonHideHistory>
       <ButtonClearHistory onClick={clearAllHistory} theme={theme}>
         Clear History

@@ -1,11 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { KEYS } from "../../constants/keys";
-import {
-  setCurrentCalculation,
-  setHistory,
-} from "../../store/reducers/calculatorReducer";
+import { changeDisplay } from "../../utils/mathOperations";
 
 import { Key, KeypadContainer, Keys } from "./styled";
 
@@ -13,6 +10,7 @@ const Keypad = () => {
   const currentCalculation = useSelector(
     (state) => state.calculator.currentCalculation
   );
+  const [currentResult, setCurrentResult] = useState(0);
   const dispatch = useDispatch();
 
   return (
@@ -23,17 +21,13 @@ const Keypad = () => {
             <Key
               key={key}
               onClick={() => {
-                if (key === "CE" || key === "C")
-                  dispatch(setCurrentCalculation("0"));
-                else if (key === "=") {
-                  dispatch(setCurrentCalculation("0"));
-                  dispatch(setHistory(currentCalculation));
-                } else if (currentCalculation === "0") {
-                  dispatch(setCurrentCalculation(key));
-                } else
-                  dispatch(
-                    setCurrentCalculation(currentCalculation + " " + key)
-                  );
+                changeDisplay(
+                  key,
+                  dispatch,
+                  currentResult,
+                  currentCalculation,
+                  setCurrentResult
+                );
               }}
             >
               {key}

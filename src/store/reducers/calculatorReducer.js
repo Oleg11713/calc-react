@@ -2,22 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
   currentCalculation: "0",
-  history: [
-    "2*2",
-    "2*2",
-    "2*2",
-    "2*2",
-    "2*2",
-    "2*2",
-    "2*2",
-    "2*2",
-    "2*2",
-    "2*2",
-    "2*2",
-    "2*2",
-    "2*2",
-    "2*2",
-  ],
+  history: [],
   isHistoryHidden: false,
 };
 

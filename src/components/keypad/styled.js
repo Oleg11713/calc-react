@@ -9,8 +9,8 @@ export const KeypadContainer = styled.div`
 export const Keys = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-column-gap: 7vw;
-  grid-row-gap: 4vh;
+  grid-column-gap: 5vw;
+  grid-row-gap: 3.5vh;
 `;
 
 export const Key = styled.div`
@@ -18,8 +18,8 @@ export const Key = styled.div`
   align-items: center;
   justify-content: center;
 
-  padding: 20px;
-  font-size: 40px;
+  padding: 21px;
+  font-size: 44px;
 
   background-color: rgba(211, 211, 211, 0.25);
   border: 1px solid gray;
