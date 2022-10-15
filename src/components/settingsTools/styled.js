@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import propTypes from "prop-types";
 
 import { Button } from "../app/styled";
 
@@ -25,6 +26,10 @@ export const SwitchTheme = styled.select`
     color: black;
   }
 `;
+
+SwitchTheme.protoType = {
+  theme: propTypes.string,
+};
 
 export const ButtonClearAllHistory = styled(Button)`
   margin-top: 20px;

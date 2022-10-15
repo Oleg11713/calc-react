@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <Link to="/home">
+      <Link to="/homeFC">
         <LogoTitle>Calculator App</LogoTitle>
       </Link>
       <Tabs>

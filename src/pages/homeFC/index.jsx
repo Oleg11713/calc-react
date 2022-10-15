@@ -1,10 +1,10 @@
 import React from "react";
 
-import Calculator from "../../components/calculator";
+import Calculator from "../../components/functionalComponents/calculator";
 
 import { HomeContainer } from "./styled";
 
-const HomePage = () => {
+const HomePageFC = () => {
   return (
     <HomeContainer>
       <Calculator />
@@ -12,4 +12,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default HomePageFC;

@@ -1,11 +1,16 @@
 import styled from "styled-components";
+import propTypes from "prop-types";
 
 export const AppContainer = styled.div`
   height: 100vh;
   background-color: ${(props) =>
-          props.theme === "dark" ? "#4b4a4a" : "white"};
+    props.theme === "dark" ? "#4b4a4a" : "white"};
   color: ${(props) => (props.theme === "dark" ? "white" : "black")};
 `;
+
+AppContainer.protoType = {
+  theme: propTypes.string,
+};
 
 export const Button = styled.button`
   padding: 15px;
@@ -19,3 +24,7 @@ export const Button = styled.button`
 
   cursor: pointer;
 `;
+
+Button.protoType = {
+  theme: propTypes.string,
+};

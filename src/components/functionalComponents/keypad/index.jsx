@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { KEYS } from "../../constants/keys";
-import { changeDisplay } from "../../utils/mathOperations";
+import { KEYS } from "../../../constants/keys";
+import { changeDisplay } from "../../../utils/mathOperations";
 
 import { Key, KeypadContainer, Keys } from "./styled";
 

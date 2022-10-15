@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   clearHistory,
   setIsHistoryHidden,
-} from "../../store/reducers/calculatorReducer";
+} from "../../../store/reducers/calculatorReducer";
 
 import {
   ButtonClearHistory,

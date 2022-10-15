@@ -1,11 +1,17 @@
-import HomePage from "../pages/home";
+import HomePageFC from "../pages/homeFC";
+import HomePageCC from "../pages/homeCC";
 import SettingsPage from "../pages/settings";
 
 export const ROUTES = [
   {
-    path: "/home",
-    element: <HomePage />,
-    title: "Home",
+    path: "/homeFC",
+    element: <HomePageFC />,
+    title: "HomeFC",
+  },
+  {
+    path: "/homeCC",
+    element: <HomePageCC />,
+    title: "HomeCC",
   },
   {
     path: "/settings",
