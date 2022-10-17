@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 
 import App from "./components/app";
 import { store } from "./store";
+import ErrorBoundary from "./utils/errorBoundary";
 
 import "./index.css";
 
@@ -13,7 +14,9 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <ErrorBoundary>
+          <App />
+        </ErrorBoundary>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
