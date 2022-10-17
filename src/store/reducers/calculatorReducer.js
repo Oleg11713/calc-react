@@ -18,6 +18,7 @@ export const calculatorSlice = createSlice({
     },
     clearHistory: (state) => {
       state.history = [];
+      localStorage.setItem("history", JSON.stringify([]));
     },
     setIsHistoryHidden: (state) => {
       state.isHistoryHidden = !state.isHistoryHidden;

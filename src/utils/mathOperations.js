@@ -2,6 +2,7 @@ import {
   setCurrentCalculation,
   setHistory,
 } from "../store/reducers/calculatorReducer";
+import { calculatorCore, operations } from "./commandPattern";
 
 export const changeDisplay = (
   key,
@@ -16,8 +17,19 @@ export const changeDisplay = (
       if (
         getReversePolishNotationString(currentCalculation, setCurrentResult) !==
         "ERROR"
-      )
+      ) {
         dispatch(setHistory(currentCalculation));
+        if (localStorage.getItem("history")) {
+          localStorage.setItem(
+            "history",
+            JSON.stringify(
+              JSON.parse(localStorage.getItem("history")).concat([
+                currentCalculation,
+              ])
+            )
+          );
+        }
+      }
     dispatch(
       setCurrentCalculation(
         getReversePolishNotationString(currentCalculation, setCurrentResult)
@@ -86,6 +98,8 @@ const getReversePolishNotationString = (str, setCurrentResult) => {
 const calculation = (expression, setCurrentResult) => {
   let exprQueue = expression.split(" ");
   let stack = [];
+  let calculator = calculatorCore();
+
   if (exprQueue === "") {
     return 0;
   }
@@ -93,17 +107,9 @@ const calculation = (expression, setCurrentResult) => {
     if (!isNaN(exprQueue[i]) && isFinite(exprQueue[i])) {
       stack.push(exprQueue[i]);
     } else {
-      let a = stack.pop();
-      let b = stack.pop();
-      if (exprQueue[i] === "+") {
-        stack.push(parseFloat(a) + parseFloat(b));
-      } else if (exprQueue[i] === "-") {
-        stack.push(parseFloat(b) - parseFloat(a));
-      } else if (exprQueue[i] === "*") {
-        stack.push(parseFloat(a) * parseFloat(b));
-      } else if (exprQueue[i] === "/") {
-        stack.push(parseFloat(b) / parseFloat(a));
-      }
+      stack.push(
+        calculator.execute(operations(stack.pop(), stack.pop(), exprQueue[i]))
+      );
     }
   }
   if (stack.length > 1 || isNaN(stack[0])) {

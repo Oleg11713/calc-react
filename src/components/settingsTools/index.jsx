@@ -12,6 +12,7 @@ const SettingsTools = () => {
 
   const handleChange = (event) => {
     dispatch(setTheme(event.target.value));
+    localStorage.setItem("theme", JSON.stringify(event.target.value));
   };
 
   const clearAllHistory = () => {
@@ -21,8 +22,12 @@ const SettingsTools = () => {
   return (
     <ToolsContainer>
       <SwitchTheme value={theme} onChange={handleChange} theme={theme}>
-        <option value="light" theme={theme}>Light Theme</option>
-        <option value="dark" theme={theme}>Dart Theme</option>
+        <option value="light" theme={theme}>
+          Light Theme
+        </option>
+        <option value="dark" theme={theme}>
+          Dart Theme
+        </option>
       </SwitchTheme>
       <ButtonClearAllHistory onClick={clearAllHistory} theme={theme}>
         Clear All History
