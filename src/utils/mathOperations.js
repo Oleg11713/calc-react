@@ -52,7 +52,7 @@ export const changeDisplay = (
   } else dispatch(setCurrentCalculation(currentCalculation + "" + key));
 };
 
-const getReversePolishNotationString = (str, setCurrentResult) => {
+export const getReversePolishNotationString = (str, setCurrentResult) => {
   const op = { "+": 0, "-": 0, "*": 1, "/": 1 };
   let [opStack, exprStack] = [[], []];
 
@@ -95,7 +95,7 @@ const getReversePolishNotationString = (str, setCurrentResult) => {
   return calculation(result, setCurrentResult);
 };
 
-const calculation = (expression, setCurrentResult) => {
+export const calculation = (expression, setCurrentResult) => {
   let exprQueue = expression.split(" ");
   let stack = [];
   let calculator = calculatorCore();

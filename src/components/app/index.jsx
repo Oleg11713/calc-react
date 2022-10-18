@@ -15,9 +15,13 @@ const App = () => {
 
   useEffect(() => {
     const localHistory = JSON.parse(localStorage.getItem("history"));
-    localHistory.forEach((local) => dispatch(setHistory(local)));
+    if (localHistory) {
+      localHistory.forEach((local) => dispatch(setHistory(local)));
+    }
     const localTheme = JSON.parse(localStorage.getItem("theme"));
-    dispatch(setTheme(localTheme));
+    if (localTheme) {
+      dispatch(setTheme(localTheme));
+    }
   }, [dispatch]);
 
   return (
