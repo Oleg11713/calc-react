@@ -40,7 +40,7 @@ export const calculatorCore = () => {
 
   return {
     execute: function (command) {
-      current = +command.execute(command.current, command.value);
+      current = command.execute(command.current, command.value);
       commands.push(command);
       return current;
     },

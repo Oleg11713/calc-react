@@ -108,7 +108,13 @@ const calculation = (expression, setCurrentResult) => {
       stack.push(exprQueue[i]);
     } else {
       stack.push(
-        calculator.execute(operations(stack.pop(), stack.pop(), exprQueue[i]))
+        calculator.execute(
+          operations(
+            parseFloat(stack.pop()),
+            parseFloat(stack.pop()),
+            exprQueue[i]
+          )
+        )
       );
     }
   }
